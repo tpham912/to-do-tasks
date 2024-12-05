@@ -9,16 +9,26 @@ let clearTasks = document.querySelector(".reset-btn");
 let tasks = [];
 
 function addTasks() {
-
     for (let input of inputs) {
-        tasks.push(input.value);
+        if (input.value == '') {
+            window.alert("Enter a task!");
+        } else {
+            tasks.push(input.value);            
+            let listEl = document.createElement("li");
+            listEl.textContent = input.value + '\n';
+            listContainer.appendChild(listEl);
+        }
+    }
+}
 
-        let listEl = document.createElement("li");
-        listEl.textContent = input.value + '\n';
-        listContainer.appendChild(listEl);
+function clearList() {
+    if (tasks.length > 0) {
+        tasks = [];
 
+        listContainer.textContent = tasks;
     }
 }
 
 addTaskBtn.addEventListener("click", addTasks);
+clearTasks.addEventListener("click", clearList);
 
