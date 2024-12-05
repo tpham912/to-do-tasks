@@ -4,7 +4,6 @@
 
 `querySelectorAll`: gives a fixed list that doesn’t update after you run the query. It always returns a NodeList, and NodeLists are iterable.
 
-
 Review:
 - `createElement()`
 - `appendChild()`
