@@ -1,0 +1,15 @@
+## getElementsByClassName vs querySelectorAll
+`getElementsByClassName`: gives a live list that updates automatically when the DOM changes.
+
+
+`querySelectorAll`: gives a fixed list that doesn’t update after you run the query. It always returns a NodeList, and NodeLists are iterable.
+
+
+Review:
+- `createElement()`
+- `appendChild()`
+- `event.preventDefault()`
+- Keyboard Events
+- Event Bubbling
+- Data Attributes
+- Loval Storage Objects

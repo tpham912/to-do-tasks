@@ -1,0 +1,26 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.add-box {
+    border: 2px solid black; 
+    padding: 10%;
+}
+
+input {
+    width: 100%;
+}
+
+.buttons {
+    padding-top: 35px; 
+}
+
+.add-btn, .reset-btn {
+    background-color: green;
+    border-radius: 7px;
+    font-size: 16px;
+    color: white;
+    padding: 5px 5px;
+
+}
