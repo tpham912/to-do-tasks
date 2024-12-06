@@ -1,5 +1,6 @@
 let inputs = document.getElementsByClassName("input");
 let listContainer = document.getElementById("list-container");
+let inputEl = document.querySelector("#task-name");
 
 // buttons
 let addTaskBtn = document.querySelector(".add-btn");
@@ -20,7 +21,9 @@ function addTasks() {
             box.textContent = input.value + '\n';
             listContainer.appendChild(box);
         }
+        input.value = '';
     }
+ 
 }
 
 function clearList() {
@@ -33,4 +36,11 @@ function clearList() {
 
 addTaskBtn.addEventListener("click", addTasks);
 clearTasks.addEventListener("click", clearList);
+inputEl.addEventListener("keypress", function(event) {
+
+    if (event.key == "Enter") {
+        event.preventDefault();
+        addTasks();
+    }
+});
 
