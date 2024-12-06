@@ -14,9 +14,11 @@ function addTasks() {
             window.alert("Enter a task!");
         } else {
             tasks.push(input.value);            
-            let listEl = document.createElement("li");
-            listEl.textContent = input.value + '\n';
-            listContainer.appendChild(listEl);
+            let box = document.createElement("div");
+            // classList = Add a class
+            box.classList.add("each-task");
+            box.textContent = input.value + '\n';
+            listContainer.appendChild(box);
         }
     }
 }
