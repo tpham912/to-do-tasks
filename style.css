@@ -28,6 +28,10 @@ input {
 
 }
 
+#today {
+    font-weight: bold;
+}
+
 .buttons {
     padding-top: 35px; 
 }
