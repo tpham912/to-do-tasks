@@ -26,39 +26,55 @@ function addTasks() {
         if (input.value == '') {
             window.alert("Enter a task!");
         } else {
-            tasks.push(input.value);            
-            let box = document.createElement("div");
+            tasks.push(input.value.trim());
+
+            let eachTaskdiv = document.createElement("div");
             // classList = Add a class
-            box.classList.add("each-task");
-            box.textContent = input.value + '\n';
+            eachTaskdiv.classList.add("each-task");
+            eachTaskdiv.textContent = input.value + '\n';
 
+            // Create Remove Task Button
             removeTaskButton = document.createElement("button");
-
             removeTaskButton.type = 'button';
             removeTaskButton.classList.add('d-none');
             removeTaskButton.className = 'btn btn-danger';
             removeTaskButton.style.cssFloat = 'right';
             removeTaskButton.style.padding = '0 10px';
 
+            // Create trash icon
             icon = document.createElement("icon");
             icon.className = "bi bi-trash";
             icon.style.background = "#dc3545";
             
-            removeTaskButton.appendChild(icon);
-            box.appendChild(removeTaskButton);
-            listContainer.appendChild(box);
+            removeTaskButton.appendChild(icon);  // Append icon to remove button
+            eachTaskdiv.appendChild(removeTaskButton); // Append remove button to div
+            listContainer.appendChild(eachTaskdiv); // Append div to outer div
+
+             // Add event listener for delete functionality
+            removeTaskButton.addEventListener("click", function () {
+                let oneTask = eachTaskdiv.textContent.trim();
+
+                // Find the index of the task to remove
+                let taskIndex = tasks.indexOf(oneTask);
+                
+                // If task exists in the array, remove it from the array
+                if (taskIndex !== -1) {
+                    tasks.splice(taskIndex, 1);
+                    eachTaskdiv.remove();
+                }
+            })
         }
+        // Clear input field
         input.value = '';
     }
-}
+};
 
 function clearList() {
     if (tasks.length > 0) {
         tasks = [];
-
         listContainer.textContent = tasks;
     }
-}
+};
 
 addTaskBtn.addEventListener("click", addTasks);
 clearTasks.addEventListener("click", clearList);
@@ -68,5 +84,4 @@ inputEl.addEventListener("keypress", function(event) {
         event.preventDefault();
         addTasks();
     }
-    
 });
